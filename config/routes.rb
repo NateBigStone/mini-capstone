@@ -1,3 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get '/all_fish_url' => 'fishes#all_fish_action'
+  get '/buy_fish_url' => 'fishes#buy_fish_action'
 end

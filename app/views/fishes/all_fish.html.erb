@@ -1,0 +1,14 @@
+<h1>All the fish</h1>
+<p>
+<% @fish.each do |fish| %>
+<div>
+  <%="Type of fish: " + fish.name %><br>
+  <%="Prices of fish: $" + fish.price.to_s %><br>
+  <%="Description of fish: " + fish.description %><br>
+  <img src="<%=fish.image%>" height="100">
+</div>
+<% end %>
+<br>
+<br>
+<%= @test %><br>
+<a href="/../buy_fish_url">buy the fish</a></p>
