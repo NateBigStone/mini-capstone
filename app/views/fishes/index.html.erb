@@ -2,13 +2,14 @@
 <p>
 <% @fish.each do |fish| %>
 <div>
-  <%="Type of fish: " + fish.name %><br>
+  Type of fish: <a href=/fishes/<%=fish.id%>> <%= fish.name %></a><br>
   <%="Prices of fish: $" + fish.price.to_s %><br>
   <%="Description of fish: " + fish.description %><br>
   <img src="<%=fish.image%>" height="100">
 </div>
+<br>
+<br>
+<br>
+<br>
 <% end %>
-<br>
-<br>
-<%= @test %><br>
-<a href="/../buy_fish_url">buy the fish</a></p>
+

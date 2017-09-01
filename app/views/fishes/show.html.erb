@@ -1,0 +1,9 @@
+<h1><%= @fish.name %> </h1>
+<p>
+<div>
+  <%="Type of fish: " + @fish.name %><br>
+  <%="Prices of fish: $" + @fish.price.to_s %><br>
+  <%="Description of fish: " + @fish.description %><br>
+  <img src="<%=@fish.image%>" height="100">
+</div>
+<a href="/../">back to the fish</a></p>
