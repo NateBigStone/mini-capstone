@@ -5,5 +5,13 @@
   <%="Prices of fish: $" + @fish.price.to_s %><br>
   <%="Description of fish: " + @fish.description %><br>
   <img src="<%=@fish.image%>" height="100">
-</div>
-<a href="/../">back to the fish</a></p>
+</div><br>
+<form action="<%=@fish.id%>/edit">
+    <input type="submit" value="Edit" />
+</form>
+<%= form_tag "/fishes/#{@fish.id}", method: :delete do %>
+  <input type="submit" value="Delete Fish" class="btn btn-danger">
+<%end%>
+<form action="/../">
+  <input type="submit" value="Back to Fish" />
+</form>
