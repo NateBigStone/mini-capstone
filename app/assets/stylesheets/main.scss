@@ -1,0 +1,24 @@
+// typeography
+
+
+$first-color: green;
+$second-color: black;
+
+h1 {
+  color: $first-color;
+}
+
+h2 {
+}
+
+body {
+  background-color: $second-color;
+  background-image: url('diagonal_waves.png');
+  font-family: "Book Antiqua",Palatino,"Palatino Linotype","Palatino LT STD","Georgia serif";
+}
+.product-index-single{
+  height: 400px;
+}
+.well{
+  width: 360px;
+}

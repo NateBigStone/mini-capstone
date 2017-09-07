@@ -1,17 +1,13 @@
-<h1>All the fish</h1>
-<p>
+<div class="row">
 <% @fish.each do |fish| %>
-<div>
-  Type of fish: <a href=/fishes/<%=fish.id%>> <%= fish.name %></a><br>
-  <%="Prices of fish: $" + fish.price.to_s %><br>
-  <%="Description of fish: " + fish.description %><br>
-  <img src="<%=fish.image%>" height="100"><br>
-</div>
-<br>
-<br>
-<br>
-<br>
+  <div class="col-md-4 col-sm-6 product-index-single">
+    <div class="well">
+      <h4>Type of fish: <a href=/fishes/<%=fish.id%>> <%= fish.name %></a></h4>
+      <h5>Price of fish: $ <%=fish.price.to_s %></h5>
+      <h5>Description of fish: <%=fish.description %></h5>
+      <img src="<%=fish.image%>" width="310">
+    </div>
+  </div>
 <% end %>
-<form action="/fishes/new">
-  <input type="submit" value="New Fish!" />
-</form>
+</div>
+
