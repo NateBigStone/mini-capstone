@@ -2,7 +2,9 @@
 <p>
 <div>
   <%="Type of fish: " + @fish.name %><br>
-  <%="Prices of fish: $" + @fish.price.to_s %><br>
+  <%="Prices of fish: $" + @fish.price.to_s %><%= @fish.sale_message %><br>
+  Tax: <%= @fish.tax %> <br>
+  Total: <%= @fish.total %><br>
   <%="Description of fish: " + @fish.description %><br>
   <img src="<%=@fish.image%>" height="100">
 </div><br>
