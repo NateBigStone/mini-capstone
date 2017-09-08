@@ -2,7 +2,7 @@
 <% @fish.each do |fish| %>
   <div class="col-md-4 col-sm-6 product-index-single">
     <div class="well">
-      <h4>Type of fish: <a href=/fishes/<%=fish.id%>> <%= fish.name %></a></h4>
+      <h4>Type of fish: <a href="/fishes/<%=fish.id%>"> <%= fish.name %></a></h4>
       <h5>Price of fish: $ <%=fish.price.to_s %></h5>
       <h5>Description of fish: <%=fish.description %></h5>
       <img src="<%=fish.image%>" width="310">

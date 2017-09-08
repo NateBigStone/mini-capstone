@@ -1,7 +1,7 @@
 class Fish < ApplicationRecord
   def sale_message
-    if price < 2 
-      return " -Discount Item!!!" 
+    if discounted?  
+      " -Discount Item!!!" 
     else
       " -Everyday Value!"
     end
@@ -12,4 +12,13 @@ class Fish < ApplicationRecord
   def total
     return price + tax
   end
+  def discounted? 
+    price < 5
+  end
+
 end
+
+
+
+
+
