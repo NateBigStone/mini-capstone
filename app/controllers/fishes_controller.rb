@@ -1,7 +1,20 @@
 class FishesController < ApplicationController
+  $fish_all = Fish.all
+  $fish_total = Fish.count
   def index
     @title = "All The Fish"
     @fish = Fish.all
+    sort_attribute = params[:sort]
+    order_attribute = params[:order]
+    discount_attribute = params[:discount]
+    if order_attribute && sort_attribute
+      @fish = Fish.all.order(sort_attribute => order_attribute)
+    elsif sort_attribute 
+      @fish = Fish.all.order(sort_attribute)
+    end
+    if discount_attribute
+      @fish = Fish.all.where("price < ?", 5)
+    end
   end
   def new
     @title = "Create a New Fish"

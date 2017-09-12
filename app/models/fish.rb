@@ -15,7 +15,6 @@ class Fish < ApplicationRecord
   def discounted? 
     price < 5
   end
-
 end
 
 
