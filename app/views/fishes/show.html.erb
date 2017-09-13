@@ -6,8 +6,12 @@
   Tax: <%= number_to_currency(@fish.tax) %> <br>
   Total: <%= number_to_currency(@fish.total) %><br>
   <%="Description of fish: " + @fish.description %><br>
-  <img src="<%=@fish.image%>" height="100">
+  <img src="<%=@fish.image%>" height="100"><br>
+  <h6> Supplier: <%= @fish.supplier.name %> </h6>
 </div><br>
+<form action="<%=@fish.id%>/buy">
+    <input type="submit" value="Buy Fish" />
+</form>
 <form action="<%=@fish.id%>/edit">
     <input type="submit" value="Edit" />
 </form>

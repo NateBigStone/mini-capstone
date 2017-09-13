@@ -1,6 +1,4 @@
 class FishesController < ApplicationController
-  $fish_all = Fish.all
-  $fish_total = Fish.count
   def index
     @title = "All The Fish"
     @fish = Fish.all
@@ -24,7 +22,8 @@ class FishesController < ApplicationController
                      name: params[:name],
                      price: params[:price],
                      image: params[:image],
-                     description: params[:description]
+                     description: params[:description],
+                     supplier_id: params[:supplier_id]
                     )
   fish.save
   flash[:success] = "Fish Successfully Created"
@@ -56,4 +55,13 @@ class FishesController < ApplicationController
     flash[:success] = "Fish Successfully Deleted"
     redirect_to "/../"
   end  
+  def random
+    fish_id = Fish.all.sample.id
+    redirect_to "/fishes/#{fish_id}"
+  end
+  def buy
+    @fish = Fish.find_by(id: params[:id])
+    @title = "Buy the Fish"
+  end
 end
+

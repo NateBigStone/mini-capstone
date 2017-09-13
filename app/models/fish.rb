@@ -15,6 +15,9 @@ class Fish < ApplicationRecord
   def discounted? 
     price < 5
   end
+  def supplier
+    Supplier.find_by(id: self.supplier_id)
+  end
 end
 
 

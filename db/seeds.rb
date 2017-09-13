@@ -14,26 +14,43 @@
 #                     )
 # fish.save
 
-fish = Fish.new(
-                     name: "Crappie",
-                     price: 7,
-                     image: "http://images.dnr.state.mn.us//fisheries/fishes/crappie/black_crappie.jpg",
-                     description: "Highly regarded pan fish often considered to be among the best-tasting freshwater fish in North America."
-                    )
-fish.save
+# fish = Fish.new(
+#                      name: "Crappie",
+#                      price: 7,
+#                      image: "http://images.dnr.state.mn.us//fisheries/fishes/crappie/black_crappie.jpg",
+#                      description: "Highly regarded pan fish often considered to be among the best-tasting freshwater fish in North America."
+#                     )
+# fish.save
 
-fish = Fish.new(
-                     name: "Sturgeon",
-                     price: 20,
-                     image: "http://images.dnr.state.mn.us/education_safety/education/minnaqua/leaders_guide/fish/lake_sturgeon.gif",
-                     description: "A bony fish with primitive characteristics that can get up to 18 feet long."
-                    )
-fish.save
+# fish = Fish.new(
+#                      name: "Sturgeon",
+#                      price: 20,
+#                      image: "http://images.dnr.state.mn.us/education_safety/education/minnaqua/leaders_guide/fish/lake_sturgeon.gif",
+#                      description: "A bony fish with primitive characteristics that can get up to 18 feet long."
+#                     )
+# fish.save
 
-fish = Fish.new(
-                     name: "Muskellunge",
-                     price: 12,
-                     image: "http://images.dnr.state.mn.us/fisheries/fishes/mue/tigermuskie.jpg",
-                     description: "This fish closely resembles other species such as the northern pike in both appearance and behavior, but can get much larger." 
-                    )
-fish.save
+# fish = Fish.new(
+#                      name: "Muskellunge",
+#                      price: 12,
+#                      image: "http://images.dnr.state.mn.us/fisheries/fishes/mue/tigermuskie.jpg",
+#                      description: "This fish closely resembles other species such as the northern pike in both appearance and behavior, but can get much larger." 
+#      
+# supplier = Supplier.new(
+#                      name: "Great Lakes Fishery",
+#                      email: "info@glf.org",
+#                      phone: "734-662-3209",
+#                     )
+# supplier.save
+# supplier = Supplier.new(
+#                      name: "Wisconsin Animals",
+#                      email: "badgercountry@wiscimals.com",
+#                      phone: "696-432-0984",
+#                     )
+# supplier.save
+# supplier = Supplier.new(
+#                      name: "Jon Johnson",
+#                      email: "heresjonny@aol.com",
+#                      phone: "218-329-0383",
+#                     )
+# supplier.save

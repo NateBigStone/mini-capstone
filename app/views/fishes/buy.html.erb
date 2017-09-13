@@ -1,0 +1,27 @@
+<p>
+<div>
+  <%="Buy the " + @fish.name %><br>
+  <%="Price of fish: " + number_to_currency(@fish.price) %><font color="red"><%= @fish.sale_message %></font><br>
+  Tax: <%= number_to_currency(@fish.tax) %> <br><br>
+  <img src="<%=@fish.image%>" height="100">
+</div>
+<%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: <%= number_to_currency(@fish.price + @fish.tax) %> </span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="This fish"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>
+
+</p>
