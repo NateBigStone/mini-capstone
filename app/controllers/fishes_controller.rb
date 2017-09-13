@@ -16,6 +16,7 @@ class FishesController < ApplicationController
   end
   def new
     @title = "Create a New Fish"
+    @suppliers = Supplier.all
   end
   def create
   fish = Fish.new(
