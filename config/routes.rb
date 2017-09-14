@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   get '/fishes/:id/edit' => 'fishes#edit'
   patch '/fishes/:id' => 'fishes#update'
   delete '/fishes/:id' => 'fishes#destroy'
+  get "/signup" => "users#new"
+  post "/users" => "users#create"
+  get "/login" => "sessions#new"
+  post "/login" => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 end
