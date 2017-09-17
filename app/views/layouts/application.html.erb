@@ -57,9 +57,15 @@
             <li><a href="../?discount=true">Only Discount Items</a></li>
             <li><a href="../fishes/random">Random Fish</a></li>           
             <li role="separator" class="divider"></li>
+            <% if current_user %>
+            <li><a href="/logout">Log Out</a></li>  
+
+            <% else %>
             <li><a href="/signup">Sign Up</a></li>  
             <li><a href="/login">Log In</a></li>
-            <li><a href="/logout">Log Out</a></li>  
+            <% end %>
+
+
           </ul>
         </li>
       </ul>

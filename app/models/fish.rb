@@ -1,4 +1,5 @@
 class Fish < ApplicationRecord
+
   def sale_message
     if discounted?  
       " -Discount Item!!!" 
@@ -18,6 +19,7 @@ class Fish < ApplicationRecord
   def supplier
     Supplier.find_by(id: self.supplier_id)
   end
+  has_many :orders
 end
 
 
