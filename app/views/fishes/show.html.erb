@@ -9,13 +9,39 @@
   <img src="<%=@fish.image%>" height="100"><br>
   <h6> Supplier: <%= @fish.supplier.name %> </h6>
 </div><br>
-<form action="<%=@fish.id%>/edit">
+
+
+
+<table>
+  <tr>
+    <th><form action="<%=@fish.id%>/edit">
     <input type="submit" value="Edit" />
-</form>
-<%= form_tag "/fishes/#{@fish.id}", method: :delete do %>
+</form></th>
+    <th><%= form_tag "/fishes/#{@fish.id}", method: :delete do %>
   <input type="submit" value="Delete Fish" class="btn btn-danger">
-<%end%>
-<form action="/../">
+<%end%></th> 
+</tr>
+<tr>
+    <th><form action="/../">
   <input type="submit" value="Back to Fish" />
-</form>
+</form></th>
+<th>
+</th>
+  </tr>
+<tr>
+<th>
+Please enter the product id of<br> fish you'd like to purchase<br>
+<%= form_tag '/orders', method: :post do  %>
+  <div>
+    <input type="integer" name="fish_id">
+  </div>
+Please enter the quantity of<br> fish you'd like to purchase<br>
+  <div>
+    <input type="integer" name="quantity">
+  </div>
+   <input type="submit" value="Buy Now!">
+ <%end%>  
+</th><th></th>
+
+</table>
 

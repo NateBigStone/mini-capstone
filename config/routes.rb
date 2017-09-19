@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post '/fishes' => 'fishes#create'
   get '/fishes/random' => 'fishes#random'
   get '/fishes/:id' => 'fishes#show'
-  get '/fishes/:id/buy' => 'fishes#buy'
   get '/fishes/:id/edit' => 'fishes#edit'
   patch '/fishes/:id' => 'fishes#update'
   delete '/fishes/:id' => 'fishes#destroy'
@@ -14,4 +13,8 @@ Rails.application.routes.draw do
   get "/login" => "sessions#new"
   post "/login" => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+  get '/orders' => 'orders#new'
+  post '/orders' => 'orders#create'
+  get '/checkout' => 'orders#show'
+
 end
