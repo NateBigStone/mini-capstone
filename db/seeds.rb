@@ -54,3 +54,32 @@
 #                      phone: "218-329-0383",
 #                     )
 # supplier.save
+
+# Category.create!(name: "Panfish")
+# Category.create!(name: "Predator")
+# Category.create!(name: "Bottom-feeder")
+# Category.create!(name: "Freshwater")
+
+# CategoryFish.create!(fish_id: 1, category_id: 1)
+# CategoryFish.create!(fish_id: 2, category_id: 2)
+# CategoryFish.create!(fish_id: 3, category_id: 3)
+# CategoryFish.create!(fish_id: 4, category_id: 3)
+# CategoryFish.create!(fish_id: 5, category_id: 3)
+# CategoryFish.create!(fish_id: 1, category_id: 4)
+# CategoryFish.create!(fish_id: 2, category_id: 4)
+# CategoryFish.create!(fish_id: 3, category_id: 4)
+# CategoryFish.create!(fish_id: 4, category_id: 4)
+# CategoryFish.create!(fish_id: 5, category_id: 4)
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -5,6 +5,7 @@ class FishesController < ApplicationController
     sort_attribute = params[:sort]
     order_attribute = params[:order]
     discount_attribute = params[:discount]
+    category_attribute = params[:category]
     if order_attribute && sort_attribute
       @fish = Fish.all.order(sort_attribute => order_attribute)
     elsif sort_attribute 
@@ -13,6 +14,9 @@ class FishesController < ApplicationController
     if discount_attribute
       @fish = Fish.all.where("price < ?", 5)
     end
+    if category_attribute
+      @fish = Category.find_by(name: category_attribute).fishes
+    end  
   end
   def new
     @title = "Create a New Fish"
