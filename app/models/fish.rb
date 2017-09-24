@@ -3,6 +3,7 @@ class Fish < ApplicationRecord
     Supplier.find_by(id: self.supplier_id)
   end
   has_many :orders
+  has_many :
   has_many :category_fishes
   has_many :categories, through: :category_fishes
   def sale_message
