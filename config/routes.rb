@@ -8,13 +8,19 @@ Rails.application.routes.draw do
   get '/fishes/:id/edit' => 'fishes#edit'
   patch '/fishes/:id' => 'fishes#update'
   delete '/fishes/:id' => 'fishes#destroy'
+
   get "/signup" => "users#new"
   post "/users" => "users#create"
+
   get "/login" => "sessions#new"
   post "/login" => 'sessions#create'
   get '/logout' => 'sessions#destroy'
-  get '/orders' => 'orders#new'
+
   post '/orders' => 'orders#create'
-  get '/checkout' => 'orders#show'
+  get '/checkout/:id' => 'orders#show'
+
+  get '/cart' => 'carted_fishes#index'
+  post '/cart' => 'carted_fishes#create'
+  delete '/cart/:id' => 'carted_fishes#destroy'
 
 end

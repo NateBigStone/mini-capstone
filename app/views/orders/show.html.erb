@@ -1,4 +1,7 @@
-<h1>order id: <%= @order.id %></h1>
+<h1>Order Summary</h1>
+<h1>order id: 38392<%= @order.id %></h1>
 <h1>user: <%= @order.user.name %></h1>
-<h1>quantity: <%= @order.quantity%></h1>
-<h1>fish id: <%= @order.fish.name %></h1>
+<h1>user: <%= @order.user.email %></h1>
+<h1>Subtotal: <%=  number_to_currency(@order.subtotal)%></h1>
+<h1>Tax: <%= number_to_currency(@order.tax) %></h1>
+<h1>Total: <%= number_to_currency(@order.total) %></h1>

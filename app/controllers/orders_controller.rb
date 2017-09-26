@@ -1,27 +1,29 @@
 class OrdersController < ApplicationController
-  def new
-    # @fish = Fish.find_by(id: params[:id])
-  end
   def create
-  fish = Fish.find(params[:fish_id])
-  subtotal = fish.price * params[:quantity].to_i
+  carted_fish = current_user.carted_fishes.where(status: "carted")
+  subtotal = 0
+  carted_fish.each do |item|
+    subtotal += (item.fish.price * item.quantity)
+    item.assign_attributes(
+                     status: "purchased"
+                    )
+    item.save
+  end
   tax = subtotal * 0.09
-  total = subtotal  + tax 
+  total = subtotal + tax 
 
   order = Order.new(
                      user_id: current_user.id,
-                     fish_id: params[:fish_id],
-                     quantity: params[:quantity],
-   #                  subtotal: params[: ],
-   #                  tax: params[: ],
-   #                 total: params[: ]
+                     subtotal: subtotal,
+                     tax: tax,
+                     total: total
                     )
   order.save
   flash[:success] = "Order Successfully Created"
-  redirect_to "/checkout"
+  redirect_to "/checkout/#{order.id}"
   end 
   def show
-    @order = Order.last
+    @order = Order.find(params[:id])
   end
         
 end
