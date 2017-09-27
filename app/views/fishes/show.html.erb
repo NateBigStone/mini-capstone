@@ -14,9 +14,6 @@
   <img src="<%=@fish.image%>" height="100"><br>
   <h6> Supplier: <%= @fish.supplier.name %> </h6>
 </div><br>
-
-
-
 <table>
   <tr>
     <th><form action="<%=@fish.id%>/edit">
@@ -35,18 +32,14 @@
   </tr>
 <tr>
 <th>
-Please enter the product id of<br> fish you'd like to purchase<br>
 <%= form_tag '/cart', method: :post do  %>
-  <div>
-    <input type="integer" name="fish_id">
-  </div>
-Please enter the quantity of<br> fish you'd like to purchase<br>
-  <div>
-    <input type="integer" name="quantity">
-  </div>
+    <input type="hidden" name="fish_id" value="<%= @fish.id %>">
+      Please enter the quantity of<br> fish you'd like to purchase<br>
+    <div>
+      <input type="number" name="quantity">
+    </div>
    <input type="submit" value="add to cart">
  <%end%>  
 </th><th></th>
-
 </table>
 

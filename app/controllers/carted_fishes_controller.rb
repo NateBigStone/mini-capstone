@@ -1,7 +1,10 @@
 class CartedFishesController < ApplicationController
   def index
     @carted_fish = current_user.carted_fishes.where(status: "carted")
-    redirect_to "/"  if @carted_fish.length < 1
+    if @carted_fish.length < 1
+      flash[:warning] = "The Cart is Empty"
+      redirect_to "/"
+    end    
   end  
 
   def create
@@ -18,8 +21,8 @@ class CartedFishesController < ApplicationController
   end  
 
   def destroy
-    delete = CartedFish.find(params[:id])
-    delete.destroy
+    carted_fish = CartedFish.find(params[:id])
+    carted_fish.update(status: "removed")
     flash[:success] = "Item Successfully Deleted"
     redirect_to "/cart"
   end 

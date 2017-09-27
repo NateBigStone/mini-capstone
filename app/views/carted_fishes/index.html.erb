@@ -1,16 +1,12 @@
 <h1>Checkout</h1>
 
-<% @carted_fish.each do |item| %>
+<% @carted_fish.each do |carted| %>
 <div>
-Item: <%= item.fish.name %><br>
-Quantity: <%= item.quantity %><br>
-Price: <%= number_to_currency(item.fish.price * item.quantity) %>
+Item: <%= carted.fish.name %><br>
+Quantity: <%= carted.quantity %><br>
+Price: <%= number_to_currency(carted.fish.price * carted.quantity) %>
 </div>
-<%= form_tag "/cart/#{item.id}", method: :delete do %>
-  <input type="submit" value="Delete Item" class="btn btn-danger">
-<%end%>
+<%= link_to "Delete Item", "/cart/#{carted.id}", method: :delete %>
 <br>
 <%end%>
-<%= form_tag '/orders', method: :post do  %>
-  <input type="submit" value="Buy Now">
-<%end%> 
+<%= link_to "Buy Now", '/orders', method: :post, class: "btn btn-primary" %>
