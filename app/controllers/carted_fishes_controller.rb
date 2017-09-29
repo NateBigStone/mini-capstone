@@ -1,4 +1,6 @@
 class CartedFishesController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :index, :destroy]
+
   def index
     @carted_fish = current_user.carted_fishes.where(status: "carted")
     if @carted_fish.length < 1

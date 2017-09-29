@@ -19,42 +19,58 @@ class FishesController < ApplicationController
     end  
   end
   def new
+    redirect_to "/" unless current_user && current_user.admin
     @title = "Create a New Fish"
+    @fish = Fish.new
     @suppliers = Supplier.all
   end
   def create
-  fish = Fish.new(
+  redirect_to "/" unless current_user && current_user.admin
+  @fish = Fish.new(
                      name: params[:name],
                      price: params[:price],
                      image: params[:image],
                      description: params[:description],
                      supplier_id: params[:supplier_id]
                     )
-  fish.save
-  flash[:success] = "Fish Successfully Created"
-  redirect_to "/fishes/#{fish.id}"
+    if @fish.save
+      flash[:success] = "Fish Successfully Created"
+      redirect_to "/fishes/#{@fish.id}"
+    else
+      @suppliers = Supplier.all
+      @errors = @fish.errors.full_messages
+      render "new.html.erb"
+    end
   end 
   def show
     @fish = Fish.find_by(id: params[:id])
     @title = @fish.name
   end
   def edit
+    redirect_to "/" unless current_user && current_user.admin
     @fish = Fish.find_by(id: params[:id])
     @title = "Edit the Fish"
   end
   def update
-    fish = Fish.find(params[:id])
-    fish.assign_attributes(
+    redirect_to "/" unless current_user && current_user.admin
+    @fish = Fish.find(params[:id])
+    @fish.assign_attributes(
                      name: params[:name],
                      price: params[:price],
                      image: params[:image],
                      description: params[:description]
                     )
-    fish.save
-    flash[:success] = "Fish Successfully Updated"
-    redirect_to "/fishes/#{fish.id}"
+    if @fish.save
+      flash[:success] = "Fish Successfully Updated"
+      redirect_to "/fishes/#{@fish.id}"
+    else
+      @suppliers = Supplier.all
+      @errors = @fish.errors.full_messages
+      render "edit.html.erb"
+    end
   end
   def destroy
+    redirect_to "/" unless current_user && current_user.admin
     fish = Fish.find(params[:id])
     fish.destroy
     flash[:success] = "Fish Successfully Deleted"
@@ -63,10 +79,6 @@ class FishesController < ApplicationController
   def random
     fish_id = Fish.all.sample.id
     redirect_to "/fishes/#{fish_id}"
-  end
-  def buy
-    @fish = Fish.find_by(id: params[:id])
-    @title = "Buy the Fish"
   end
 end
 

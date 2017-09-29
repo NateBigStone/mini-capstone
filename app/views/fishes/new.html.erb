@@ -1,16 +1,21 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <h4><font color=red><%= error %></font></h4>
+  <% end %>
+<% end %>
 <h1>New Fish!</h1>
 <%= form_tag "/fishes", method: :post do %>
   <div>
-    Name: <input type="text" name="name">
+    Name: <input type="text" name="name" value="<%= @fish.name %>">
   </div>
   <div>
-    Price: <input type="number" name="price">
+    Price: <input type="number" name="price" value="<%= @fish.price %>">
   </div>
   <div>
-    Image: <input type="text" name="image">
+    Image: <input type="text" name="image" value="<%= @fish.image %>">
   </div>
   <div>
-    Description: <input type="text" name="description">
+    Description: <input type="text" name="description" value="<%= @fish.description %>">
   </div>
     <div>
   <select name="supplier_id">

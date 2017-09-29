@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!, only: [:create, :index, :destroy]
   def create
     carted_fish = current_user.carted_fishes.where(status: "carted")
     subtotal = 0
