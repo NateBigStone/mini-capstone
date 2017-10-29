@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :charges
   get '/' => 'fishes#index'
   get '/fishes/new' => 'fishes#new'
   post '/fishes' => 'fishes#create'
